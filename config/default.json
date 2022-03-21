@@ -1,0 +1,4 @@
+{
+  "port": 5000,
+  "mongoUrl": "mongodb+srv://neelmachine:Test456@cluster0.6opd7.mongodb.net/app?retryWrites=true&w=majority"
+}
