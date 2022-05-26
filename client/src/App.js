@@ -1,96 +1,116 @@
-import {Card, Alert, Input, Button, Row, Col, Spin} from 'antd';
-import {useEffect, useState} from "react";
-import {useHttp} from "./hooks/http.hook";
+import React, {useEffect, useState} from "react";
+import 'antd/dist/antd.css';
+import './css/App.css'
+// eslint-disable-next-line
+import MyNavbar from "./components/UI/Navbar/MyNavbar";
+import AppRouter from "./components/AppRouter";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import {useDispatch, useSelector} from "react-redux";
+import {useNavigate} from "react-router-dom";
+import {Dropdown, Menu, Space} from "antd";
+import {localization} from "./localization";
+import {editLocalization} from "./redux/Actions/actions";
+
 
 function App() {
-    const [data, setData] = useState('')
-    const [alert, setAlert] = useState(false)
-    const {loading, error, request, clearError} = useHttp()
-    const regObj = {
-        "CardNumber": /^[0-9]{16}$/,
-        "ExpDate": /^(0?[1-9]|1[012])[- /.][0-9]{4}$/,
-        "Cvv": /^[0-9]{3}$/,
-        "Amount": /^[0-9]*$/
-    }
-    const [status, setStatus] = useState({ "CardNumber": '', ExpDate: '', Cvv: '', Amount: '' })
-    const [payData, setPayData] = useState({ "CardNumber": '', ExpDate: '', Cvv: '', Amount: 0 })
+    const dispatch = useDispatch();
+    const {auth} = useSelector(state => state.app)
+    const [windowSize, setWindowSize] = useState(window.innerHeight);
+    const navigate = useNavigate();
+    const {headerTitle, headerBack, headerLocalization} = useSelector(state => state.app)
 
-    const handlerInput = (event) => {
-        setPayData({...payData,
-            [event.target.title]: event.target.value
-        })
-        if (regObj[event.target.title].test(event.target.value)) {
-            setStatus({...status, [event.target.title]: 'true'})
-        } else {
-            setStatus({...status, [event.target.title]: 'warning'})
+    const menu = (
+        <Menu
+            items={[
+                {
+                    label: <div onClick={() => changeLanguage('ru')}>RU</div>,
+                    key: 'RU',
+                },
+                {
+                    label: <div onClick={() => changeLanguage('tat')}>TAT</div>,
+                    key: 'TAT',
+                },
+                {
+                    label: <div onClick={() => changeLanguage('en')}>EN</div>,
+                    key: 'EN',
+                }
+            ]}
+        />
+    );
+
+    useEffect(() => {
+        function handleResize() {
+            setWindowSize(window.innerHeight);
         }
-    }
 
-    const handlerClick = async () => {
-        try {
-            const data = await request('api/pay/accept', 'POST', {...payData})
-            setData(data)
-            setAlert(true)
-        } catch (e) {}
+        window.addEventListener("resize", handleResize);
+        handleResize();
+
+        return () => window.removeEventListener("resize", handleResize);
+    }, [])
+
+    function changeLanguage (value) {
+        dispatch(editLocalization(value));
     }
 
     return (
-        <div className="App">
-            <Card title="Оплата картой">
-                <div className="card__body">
-                    <Input
-                        title="CardNumber"
-                        onChange={handlerInput}
-                        status={status.CardNumber}
-                        placeholder="Номер карты"
-                        showCount
-                        maxLength={16}/>
-                    <Row>
-                        <Col span={12}>
-                            <Input
-                                value={payData.ExpDate}
-                                title="ExpDate"
-                                onChange={handlerInput}
-                                type="text"
-                                placeholder="MM/YYYY"
-                                status={status.ExpDate}
-                                maxLength={7}/>
-                        </Col>
-                        <Col span={12}>
-                            <Input
-                                title="Cvv"
-                                onChange={handlerInput}
-                                type="password"
-                                status={status.Cvv}
-                                placeholder="CVV"
-                                maxLength={3}/>
-                        </Col>
-                    </Row>
-                    <Input
-                        title="Amount"
-                        onChange={handlerInput}
-                        prefix="$"
-                        status={status.Amount}
-                        placeholder="Сумма" />
-                    <Button
-                        onClick={handlerClick}
-                        disabled={!Object.values(status).every((item) => item === 'true')}
-                        type="primary"
-                        block>
-                        Оплатить
-                    </Button>
-                </div>
-            </Card>
-            {loading
-                ? <Spin />
-                : <></>
-            }
-            { alert
-                ? <Alert message={JSON.stringify(data)} type="success" />
-                : <></>
-            }
+        <div style={{
+            height: windowSize,
+            overflow: 'hidden !important',
+            display: 'grid',
+            gridTemplateRows: ' 56px 1fr 56px'
+        }}>
+                {auth
+                    ? <header>
+                        {headerBack
+                            ? <ArrowBackIosIcon style={{
+                                position: 'absolute',
+                                top: '16px',
+                                left: '20px'
+                            }}
+                                                onClick={() => navigate(-1)}/>
+                            : <></>
+                        }
+                        <p>{localization[headerLocalization][headerTitle]}</p>
+                        <div style={{
+                            position: 'absolute',
+                            top: '18px',
+                            right: '20px',
+                            width: '30px',
+                            height: '30px',
+                        }}>
+                            <Dropdown overlay={menu} placement="bottom">
+                                <div>
+                                    <Space>
+                                        {headerLocalization.toUpperCase()}
+                                    </Space>
+                                </div>
+                            </Dropdown>
+                        </div>
+                        {/*<Select*/}
+                        {/*    defaultValue="ru"*/}
+                        {/*    onChange={changeLanguage}*/}
+                        {/*    bordered={false}*/}
+                        {/*    style={{*/}
+                        {/*        position: 'absolute',*/}
+                        {/*        top: '13px',*/}
+                        {/*        right: '20px'*/}
+                        {/*    }}*/}
+                        {/*>*/}
+                        {/*    <Select.Option value="tat">TAT</Select.Option>*/}
+                        {/*    <Select.Option value="ru">RU</Select.Option>*/}
+                        {/*    <Select.Option value="en">EN</Select.Option>*/}
+                        {/*</Select>*/}
+                    </header>
+                    : <></>
+                }
+                <AppRouter/>
+                {auth
+                    ? <MyNavbar/>
+                    : <></>
+                }
         </div>
-    );
+    )
 }
 
 export default App;

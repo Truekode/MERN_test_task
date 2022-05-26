@@ -1,0 +1,297 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gilroy', serif !important;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Gilroy";
+    src: url("/src/fonts/GilroyMedium.ttf") format("ttf")
+}
+
+html, body {
+    overflow-y: hidden;
+}
+
+body {
+    overflow: hidden;
+
+}
+
+#root {
+}
+
+.App {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    -webkit-text-size-adjust: none;
+    background: url('../img/Fon.svg');
+    background-size: cover;
+}
+
+.App form {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header p{
+    line-height: 56px;
+    font-size: 20px;
+    margin: 0;
+}
+header {
+    width: 100%;
+    background: white;
+    height: 56px;
+    box-shadow: 0px 0px 19px 0px rgb(0 0 0 / 15%);
+    text-align: center;
+}
+
+.user__info {
+    margin: 0 auto;
+    max-width: 600px;
+    margin-top: 20px;
+    margin-bottom: 60px;
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user__info__wrp__status {
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 44px;
+    margin: 0;
+}
+
+.user__info__wrp {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.container {
+    padding: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.dictionary {
+    display: flex;
+    flex-direction: column;
+}
+
+.ant-checkbox-wrapper + .ant-checkbox-wrapper {
+     margin-left: 0 !important;
+    margin-top: 20px;
+}
+
+.dictionary__wrp {
+    display: flex;
+    justify-content: space-around;
+}
+
+.dictionary__wrp__count-word {
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.constr__wrp {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.user__avatar {
+    border: 5px solid white;
+    padding: 2px;
+}
+
+.progress {
+    background: #FBF4EA;
+    border-radius: 15px;
+    padding: 15px 21px;
+    text-align: center;
+    min-width: 172px;
+}
+
+.progress__wrp {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.status {
+    background: #DEA0D4;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 15px;
+    padding: 17px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 172px;
+}
+
+.myActions {
+    background: #179ABF;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 15px;
+    min-width: 365px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 35px;
+    border: none;
+}
+
+.learn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+    gap: 33px;
+}
+
+.learn__btn {
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    width: 125px;
+    box-sizing: border-box;
+    color: white;
+    text-align: center;
+}
+
+.learn__wrp {
+    display: flex;
+    justify-content: space-between;
+    min-width: 300px;
+}
+
+.learn__btn-success {
+    background: #00A35E;
+}
+
+.learn__btn-error {
+    background: #F50100;
+}
+
+.learn__card p {
+    margin: 0 !important;
+}
+.learn__card {
+    min-width: 300px;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.notification__success img {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.notification__success {
+    position: absolute;
+    width: 100vw;
+    z-index: 1;
+    background: #00000029;
+    height: 100vh;
+}
+
+.Login.App {
+    height: 100vh;
+    overflow: auto;
+    padding: 60px 0 60px 0;
+    background: url('../img/Fon.svg');
+    background-size: cover;
+}
+
+.task__item {
+    width: 90%;
+    max-width: 450px;
+    border-radius: 10px;
+    margin: 20px auto;
+    border: none;
+    background: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.main__attraction {
+    text-align: center;
+}
+
+
+.attraction__item {
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 100%;
+    width: 90%;
+}
+
+.attraction__item h3{
+    line-height: 26px;
+    font-size: 18px;
+}
+
+.ymaps-2-1-79-islets_round-button__icon {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+}
+
+.navbar__wrp {
+    width: 100%;
+}
+
+.attraction__list {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.attraction__carousel {
+    width: 100%;
+}
+
+.ant-avatar > img {
+    object-fit: contain;
+}
+
+.ant-dropdown-trigger {
+    width: 100%;
+    height: 100%;
+}
+
+.notification__auth div {
+    /*width: 80%;*/
+}
+.notification__auth {
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

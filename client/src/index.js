@@ -1,11 +1,44 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import 'antd/dist/antd.css';
+import {applyMiddleware, compose, createStore} from "redux";
+import {Provider} from "react-redux";
+import thunk from 'redux-thunk'
+import {rootReducer} from "./redux/Reducers/rootReducer";
+import {BrowserRouter} from "react-router-dom";
+//
+// if (window.navigator.userAgent.includes('Chrome')) {
+//     var store = createStore(rootReducer,
+//         compose(
+//             applyMiddleware(
+//                 routerMiddleware(browserHistory)
+//             ),
+//             window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+//         )
+//     );
+// } else {
+//     var store = createStore(rootReducer,
+//         compose(
+//             applyMiddleware(
+//                 routerMiddleware(browserHistory)
+//             )
+//         )
+//     );
+// }
+
+const store = createStore(rootReducer, compose(
+    applyMiddleware(
+        thunk
+    ),
+    (window.navigator.userAgent.includes('Chrome') && !window.navigator.userAgent.includes('Edg')) ?
+            window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() : compose
+))
 
 ReactDOM.render(
-    <App />,
+    <Provider store={store}>
+        <BrowserRouter>
+                <App />
+        </BrowserRouter>
+    </Provider>,
   document.getElementById('root')
 );
-
