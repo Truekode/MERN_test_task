@@ -1,0 +1,6 @@
+{
+  "port": 80,
+  "jwtSecret": "eidert tatar language",
+  "mongoUrl": "mongodb+srv://neelmachine:Test456@cluster0.6opd7.mongodb.net/?retryWrites=true&w=majority",
+  "baseUrl": "http://xn--d1aj3dc.xn--p1ai/"
+}
