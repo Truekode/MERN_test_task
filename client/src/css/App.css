@@ -67,6 +67,7 @@ header {
     font-size: 36px;
     line-height: 44px;
     margin: 0;
+    text-align: center;
 }
 
 .user__info__wrp {
