@@ -1,0 +1,11 @@
+.letter__wrp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background: white;
+    width: 40px;
+    border-radius: 5px;
+    height: 40px;
+    box-sizing: border-box;
+}

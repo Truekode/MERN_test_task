@@ -1,5 +1,12 @@
 .loaderWrp {
-    margin-top: 50px;
+    z-index: 1;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: #ffffff82;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     justify-content: center;
     align-items: center;

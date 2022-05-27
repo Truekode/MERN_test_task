@@ -9,6 +9,7 @@ import {useNavigate} from "react-router-dom";
 import {Dropdown, Menu, Space} from "antd";
 import {localization} from "./localization";
 import {editLocalization} from "./redux/Actions/actions";
+import Loader from "./components/UI/Loader/Loader";
 
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
     const {auth} = useSelector(state => state.app)
     const [windowSize, setWindowSize] = useState(window.innerHeight);
     const navigate = useNavigate();
-    const {headerTitle, headerBack, headerLocalization} = useSelector(state => state.app)
+    const {headerTitle, headerBack, headerLocalization, loading} = useSelector(state => state.app)
 
     const menu = (
         <Menu
@@ -59,6 +60,10 @@ function App() {
             display: 'grid',
             gridTemplateRows: ' 56px 1fr 56px'
         }}>
+            {loading
+                ? <Loader />
+                : <></>
+            }
                 {auth
                     ? <header>
                         {headerBack

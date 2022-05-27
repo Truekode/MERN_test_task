@@ -18,21 +18,21 @@ const Alphabet = () => {
 
     return (
         <div className="App">
-            <Card className="task__item" onClick={() => router(`/alphabet`)}>
+            <Card className="task__item" onClick={() => router(`/alphabet/letters`)}>
                 <Meta
                     avatar={<Avatar shape="square" size={64} src={alphabet} />}
                     title={localization[headerLocalization].alphabet.alphabetPage}
                     // description={localization[headerLocalization].tasksPageAlphabetDescription}
                 />
             </Card>
-            <Card className="task__item" onClick={() => router(`/alphabet`)}>
+            <Card className="task__item" onClick={() => router(`/alphabet/learn`)}>
                 <Meta
                     avatar={<Avatar shape="square" size={64} src={alphabet} />}
                     title={localization[headerLocalization].alphabet.learnPage}
                     // description={localization[headerLocalization].tasksPageAlphabetDescription}
                 />
             </Card>
-            <Card className="task__item" onClick={() => router(`/alphabet`)}>
+            <Card className="task__item" onClick={() => router(`/alphabet/test`)}>
                 <Meta
                     avatar={<Avatar shape="square" size={64} src={alphabet} />}
                     title={localization[headerLocalization].alphabet.testPage}

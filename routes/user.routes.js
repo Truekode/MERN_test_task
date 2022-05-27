@@ -23,7 +23,9 @@ router.post(
                     message: 'Некорректные данные при входе'
                 })
             }
-            const {login, password} = req.body;
+            let {login, password} = req.body;
+            login = login.toLowerCase();
+            password = password.trim();
             const user = await User.findOne({ login })
 
             if (!user) {
@@ -65,8 +67,9 @@ router.post(
                 })
             }
 
-            const {login, lastName, firstName, patronymic, password, birthDay, email, level } = req.body
+            let {login, lastName, firstName, patronymic, password, birthDay, email, level } = req.body
             const hashedPassword = await bcrypt.hash(password, 12);
+            login = login.toLowerCase();
             const user = new User({ login, lastName, firstName, patronymic, birthDay, level, email, password: hashedPassword })
 
             const candidate = await User.findOne({ login })

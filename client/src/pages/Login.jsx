@@ -22,7 +22,7 @@ const Login = () => {
 
 
     const changeHandler = (event) => {
-        setForm({ ...form, [event.target.name]: event.target.value })
+        setForm({ ...form, [event.target.name]: event.target.value.trim().toLowerCase() })
     }
 
     const loginHandler = async (event) => {

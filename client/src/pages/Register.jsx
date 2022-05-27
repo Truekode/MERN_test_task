@@ -32,7 +32,7 @@ const Register = () => {
             setForm({ ...form, 'level': value })
             return
         }
-        setForm({ ...form, [event.target.name]: event.target.value })
+        setForm({ ...form, [event.target.name]: event.target.value.trim().toLowerCase() })
     }
 
     const registerHandler = async (event) => {
@@ -114,6 +114,7 @@ const Register = () => {
                                 onChange={(value) => changeHandler('', true, value)}
                     />
                     <Button disabled={btnDisable} type="primary" block onClick={registerHandler}>Регистрация</Button>
+                    <Button type="link" block onClick={() => router(`/login`)}>Войти</Button>
                 </Space>
             </form>
         </div>

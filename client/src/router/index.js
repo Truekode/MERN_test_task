@@ -11,6 +11,9 @@ import AttractionItem from "../pages/AttractionItem";
 import Attraction3D from "../pages/Attraction3D";
 import Alphabet from "../pages/Alphabet";
 import Register from "../pages/Register";
+import AlphabetLearn from "../pages/AlphabetLearn";
+import AlphabetLetters from "../pages/AlphabetLetters";
+import AlphabetTest from "../pages/AlphabetTest";
 
 export const privateRoutes = [
     {path: '/profile', component: <Profile/>, exact: true},
@@ -22,7 +25,10 @@ export const privateRoutes = [
     {path: '/alphabet', component: <Alphabet/>, exact: true},
     {path: '/attractions', component: <Attractions/>, exact: true},
     {path: '/attraction/:id', component: <AttractionItem/>, exact: true},
-    {path: '/attractions3D/:id', component: <Attraction3D/>, exact: true}
+    {path: '/attractions3D/:id', component: <Attraction3D/>, exact: true},
+    {path: '/alphabet/letters', component: <AlphabetLetters/>, exact: true},
+    {path: '/alphabet/learn', component: <AlphabetLearn/>, exact: true},
+    {path: '/alphabet/test', component: <AlphabetTest/>, exact: true}
 ]
 
 export const publicRoutes = [

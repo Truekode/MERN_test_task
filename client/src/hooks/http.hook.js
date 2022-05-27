@@ -1,11 +1,13 @@
 import {useCallback, useState} from 'react'
+import {useDispatch} from "react-redux";
+import {hideLoader, showLoader} from "../redux/Actions/actions";
 
 export const useHttp = () => {
-    const [loading, setLoading] = useState(false)
+    const dispatch = useDispatch();
     const [error, setError] = useState(null)
 
     const request = useCallback(async (url, method = 'GET', body = null, headers = {}) => {
-        setLoading(true)
+        dispatch(showLoader)
         try {
             if (body) {
                 body = JSON.stringify(body)
@@ -19,11 +21,12 @@ export const useHttp = () => {
                 throw new Error(data.message || 'Что-то пошло не так')
             }
 
-            setLoading(false)
+            dispatch(hideLoader)
+
 
             return data
         } catch (e) {
-            setLoading(false)
+            dispatch(hideLoader)
             setError(e.message)
             throw e
         }
@@ -31,5 +34,5 @@ export const useHttp = () => {
 
     const clearError = useCallback(() => setError(null), [])
 
-    return { loading, request, error, clearError }
+    return { request, error, clearError }
 }
