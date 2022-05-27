@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import 'antd/dist/antd.css';
 import './css/App.css'
-// eslint-disable-next-line
 import MyNavbar from "./components/UI/Navbar/MyNavbar";
 import AppRouter from "./components/AppRouter";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
