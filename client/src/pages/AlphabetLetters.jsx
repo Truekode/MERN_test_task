@@ -10,7 +10,7 @@ const AlphabetLetters = () => {
     const {headerLocalization} = useSelector(state => state.app)
 
     useEffect(() => {
-        dispatch(editHeader('tasksPageAlphabet', true))
+        dispatch(editHeader('alphabetPage', true))
     }, [])
     const playAudio = () => {
         new Audio(audio).play();
@@ -18,7 +18,7 @@ const AlphabetLetters = () => {
     return (
         <div className="App Letters">
             <div className="letters__wrapper">
-                {letters.map(letter => <Letters letter={letter} playAudio={playAudio}/>)}
+                {letters.map(letter => <Letters key={letter} letter={letter} playAudio={playAudio}/>)}
 
             </div>
         </div>

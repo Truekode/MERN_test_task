@@ -5,7 +5,7 @@ import {useHttp} from "../hooks/http.hook";
 import {useDispatch} from "react-redux";
 import {login} from "../redux/Actions/actions";
 import {useNavigate} from "react-router-dom";
-
+import logo from '../img/logoinLogin.png'
 const Login = () => {
     const dispatch = useDispatch();
     const router = useNavigate();
@@ -43,7 +43,7 @@ const Login = () => {
     }
 
     return (
-        <div className="Login App">
+        <div className="Login App Centered">
             {status.type === 'error'
                 ? <div className="notification__success notification__auth">
                     <Alert
@@ -55,17 +55,19 @@ const Login = () => {
                 </div>
                 : <></>
             }
+            <img src={logo} alt="" style={{width: '250px', marginTop: '40px', marginBottom: '40px'}}/>
             <form>
-                <Space direction="vertical">
-                    <h4>Страница авторизации</h4>
+                <Space direction="vertical" style={{width: '90%'}}>
                     <Input placeholder="Введите логин" name='login' onChange={changeHandler}/>
                     <Input.Password
                         placeholder="Введите пароль"
                         name='password' onChange={changeHandler}
                         iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
                     />
-                    <Button type="primary" block onClick={loginHandler}>Войти</Button>
-                    <Button type="link" block onClick={() => router(`/registration`)}>Зарегистрироваться</Button>
+                    <div className="logined__actions">
+                        <Button className="login__btn" type="primary" block onClick={loginHandler}>Войти</Button>
+                        <Button className="regist__btn" type="primary" block onClick={() => router(`/registration`)}>Зарегистрироваться</Button>
+                    </div>
                 </Space>
             </form>
         </div>

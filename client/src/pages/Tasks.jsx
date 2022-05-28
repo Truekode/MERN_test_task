@@ -27,46 +27,47 @@ function Tasks() {
             <div >
                 <Card className="task__item" onClick={() => router(`/alphabet`)}>
                     <Meta
-                        avatar={<Avatar shape="square" size={64} src={alphabet} />}
+                        avatar={<Avatar shape="square" size={50} src={alphabet} />}
                         title={localization[headerLocalization].tasksPageAlphabet}
                         description={localization[headerLocalization].tasksPageAlphabetDescription}
                     />
                 </Card>
-                <Card className="task__item" onClick={() => router(`/dictionary`)}>
+                <Card className="task__item">
                     <Meta
-                        avatar={<Avatar shape="square" size={64} src={dictImg} />}
-                        title={localization[headerLocalization].tasksPageDictionary}
-                        description={localization[headerLocalization].tasksPageDictionaryDescription}
+                        avatar={<Avatar shape="square" size={50} src={grammarImg} />}
+                        title={localization[headerLocalization].tasksPageGrammar}
+                        description={localization[headerLocalization].tasksPageGrammarDescription}
                     />
                 </Card>
                 <Card className="task__item" onClick={() => router(`/learn`)}>
                     <Meta
-                        avatar={<Avatar shape="square" size={64} src={learnImg} />}
+                        avatar={<Avatar shape="square" size={50} src={learnImg} />}
                         title={localization[headerLocalization].tasksPageLearnWords}
                         description={localization[headerLocalization].tasksPageLearnWordsDescription}
                     />
                 </Card>
                 <Card className="task__item" onClick={() => router(`/constructor`)}>
                     <Meta
-                        avatar={<Avatar shape="square" size={64} src={constructorImg} />}
+                        avatar={<Avatar shape="square" size={50} src={constructorImg} />}
                         title={localization[headerLocalization].tasksPageConstructor}
                         description={localization[headerLocalization].tasksPageConstructorDescription}
                     />
                 </Card>
                 <Card className="task__item">
                     <Meta
-                        avatar={<Avatar shape="square" size={64} src={testsImg} />}
+                        avatar={<Avatar shape="square" size={50} src={testsImg} />}
                         title={localization[headerLocalization].tasksPageTests}
                         description={localization[headerLocalization].tasksPageTestsDescription}
                     />
                 </Card>
-                <Card className="task__item">
+                <Card className="task__item" onClick={() => router(`/dictionary`)}>
                     <Meta
-                        avatar={<Avatar shape="square" size={64} src={grammarImg} />}
-                        title={localization[headerLocalization].tasksPageGrammar}
-                        description={localization[headerLocalization].tasksPageGrammarDescription}
+                        avatar={<Avatar shape="square" size={50} src={dictImg} />}
+                        title={localization[headerLocalization].tasksPageDictionary}
+                        description={localization[headerLocalization].tasksPageDictionaryDescription}
                     />
                 </Card>
+
             </div>
         </div>
     );

@@ -23,25 +23,17 @@ const Profile = () => {
                 </div>
                 <div className="progress__wrp">
                     <div className="progress">
-                        <p>{localization[headerLocalization].profileProgressPages}</p>
-                        <p>0</p>
+                        <p>{localization[headerLocalization].profileStatusWord}</p>
+                        <p>3</p>
                     </div>
                     <div className="progress">
                         <p>{localization[headerLocalization].profileProgressLesson}</p>
                         <p>0</p>
                     </div>
                 </div>
-                <div className="progress__wrp">
-                    <div className="status">
-                        <div>{localization[headerLocalization].profileStatusWord}</div>
-                        <div>50</div>
-                    </div>
-                    <div className="status">
-                        <div>{localization[headerLocalization].profileStatusLevel}</div>
-                        <div>{user.level}</div>
-                    </div>
-                </div>
+                <button className="myActions">{localization[headerLocalization].profileStatusLevel}</button>
                 <button className="myActions">{localization[headerLocalization].profileStatusAchievements}</button>
+                <button className="myActions">Настройки</button>
                 <button className="myActions" onClick={() => dispatch(logOut)}>Выйти из профиля</button>
             </div>
         </div>

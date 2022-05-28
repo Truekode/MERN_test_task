@@ -21,6 +21,9 @@ export const localization = {
     profileStatusWord: 'Words learned',
     profileStatusLevel: 'Level',
     profileStatusAchievements: 'My achievements',
+    alphabetPage: 'Alphabet',
+    alphabetLearnPage: 'Learning',
+    alphabetTestPage: 'Test yourself',
     alphabet: {
       alphabetPage: 'Alphabet',
       learnPage: 'Learning',
@@ -50,6 +53,9 @@ export const localization = {
     profileStatusWord: 'Өйрәнелгән сүзләр',
     profileStatusLevel: 'Уровень',
     profileStatusAchievements: 'Минем казанышларым',
+    alphabetPage: 'Әлифба',
+    alphabetLearnPage: 'Өйрәнү',
+    alphabetTestPage: 'Тикшерү',
     alphabet: {
       alphabetPage: 'Әлифба',
       learnPage: 'Өйрәнү',
@@ -79,6 +85,9 @@ export const localization = {
     profileStatusWord: 'Слов выучил',
     profileStatusLevel: 'Уровень',
     profileStatusAchievements: 'Мои достижения',
+    alphabetPage: 'Алфавит',
+    alphabetLearnPage: 'Изучение',
+    alphabetTestPage: 'Проверить себя',
     alphabet: {
       alphabetPage: 'Алфавит',
       learnPage: 'Изучение',

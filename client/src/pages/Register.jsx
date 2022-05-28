@@ -32,7 +32,7 @@ const Register = () => {
             setForm({ ...form, 'level': value })
             return
         }
-        setForm({ ...form, [event.target.name]: event.target.value.trim().toLowerCase() })
+        setForm({ ...form, [event.target.name]: event.target.value.trim() })
     }
 
     const registerHandler = async (event) => {
@@ -90,8 +90,8 @@ const Register = () => {
             }
             <form>
                 <Space direction="vertical">
-                    <h4>Страница регистрации</h4>
-                    <Input placeholder="Введите логин" name='login' onChange={changeHandler}/>
+                    <h4 className="loginHeader">Регистрация</h4>
+                    <Input className="loginInput" placeholder="Введите логин" name='login' onChange={changeHandler}/>
                     <Input placeholder="Введите ваше имя" name='firstName' onChange={changeHandler}/>
                     <Input placeholder="Введите вашу фамилию" name='lastName' onChange={changeHandler}/>
                     <Input placeholder="Введите ваше отчество" name='patronymic' onChange={changeHandler}/>
@@ -105,7 +105,8 @@ const Register = () => {
                         iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
                         name='testPass' onChange={(event) => setTestPass(event.target.value)}
                     />
-                    <div>Выбери свой уровень</div>
+                    <div style={{textAlign: 'center',
+                        color: '#FFFFFF'}}>Выбери свой уровень</div>
                     <Segmented  options={[  {label: 'Начинающий', value: 'junior'},
                                             {label: 'Средний', value: 'middle'},
                                             {label: 'Продвинутый', value: 'senior'}
@@ -113,9 +114,11 @@ const Register = () => {
                                 name='level'
                                 onChange={(value) => changeHandler('', true, value)}
                     />
-                    <Button disabled={btnDisable} type="primary" block onClick={registerHandler}>Регистрация</Button>
-                    <Button type="link" block onClick={() => router(`/login`)}>Войти</Button>
-                </Space>
+                    <div className="logined__actions">
+                        <Button className="regist__btn" disabled={btnDisable} type="primary" block onClick={registerHandler}>Регистрация</Button>
+                        <Button className="login__btn" type="primary" block onClick={() => router(`/login`)}>Войти</Button>
+                    </div>
+                   </Space>
             </form>
         </div>
     );
