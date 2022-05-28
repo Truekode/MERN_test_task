@@ -20,8 +20,8 @@ const Register = () => {
         login: '',
         lastName: '',
         firstName: '',
-        patronymic: '',
-        email: 'test@mail.ru',
+        patronymic: 'test',
+        email: '',
         password: '',
         birthDay: new Date,
         level: 'junior'
@@ -91,12 +91,12 @@ const Register = () => {
             <form>
                 <Space direction="vertical">
                     <h4 className="loginHeader">Регистрация</h4>
-                    <Input className="loginInput" placeholder="Введите логин" name='login' onChange={changeHandler}/>
-                    <Input placeholder="Введите ваше имя" name='firstName' onChange={changeHandler}/>
-                    <Input placeholder="Введите вашу фамилию" name='lastName' onChange={changeHandler}/>
-                    <Input placeholder="Введите ваше отчество" name='patronymic' onChange={changeHandler}/>
+                    <Input placeholder="Имя" name='firstName' onChange={changeHandler}/>
+                    <Input placeholder="Фамилия" name='lastName' onChange={changeHandler}/>
+                    <Input placeholder="Тел/Email" name='email' onChange={changeHandler}/>
+                    <Input className="loginInput" placeholder="Логин" name='login' onChange={changeHandler}/>
                     <Input.Password
-                        placeholder="Введите пароль"
+                        placeholder="Пароль"
                         iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
                         name='password' onChange={changeHandler}
                     />
