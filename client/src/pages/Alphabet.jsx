@@ -1,11 +1,9 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {editHeader} from "../redux/Actions/actions";
-import {Avatar, Card} from "antd";
-import alphabet from "../img/alphabet.png";
+import {Card} from "antd";
 import {localization} from "../localization";
 import {useNavigate} from "react-router-dom";
-import Meta from "antd/es/card/Meta";
 
 const Alphabet = () => {
     const dispatch  = useDispatch();
@@ -18,26 +16,14 @@ const Alphabet = () => {
 
     return (
         <div className="App">
-            <Card className="task__item" onClick={() => router(`/alphabet/letters`)}>
-                <Meta
-                    avatar={<Avatar shape="square" size={64} src={alphabet} />}
-                    title={localization[headerLocalization].alphabet.alphabetPage}
-                    // description={localization[headerLocalization].tasksPageAlphabetDescription}
-                />
+            <Card className="task__item main__attraction" onClick={() => router(`/alphabet/letters`)}>
+                {localization[headerLocalization].alphabet.alphabetPage}
             </Card>
-            <Card className="task__item" onClick={() => router(`/alphabet/learn`)}>
-                <Meta
-                    avatar={<Avatar shape="square" size={64} src={alphabet} />}
-                    title={localization[headerLocalization].alphabet.learnPage}
-                    // description={localization[headerLocalization].tasksPageAlphabetDescription}
-                />
+            <Card className="task__item main__attraction" onClick={() => router(`/alphabet/learn`)}>
+                {localization[headerLocalization].alphabet.learnPage}
             </Card>
-            <Card className="task__item" onClick={() => router(`/alphabet/test`)}>
-                <Meta
-                    avatar={<Avatar shape="square" size={64} src={alphabet} />}
-                    title={localization[headerLocalization].alphabet.testPage}
-                    // description={localization[headerLocalization].tasksPageAlphabetDescription}
-                />
+            <Card className="task__item main__attraction" onClick={() => router(`/alphabet/test`)}>
+                {localization[headerLocalization].alphabet.testPage}
             </Card>
         </div>
     );

@@ -24,7 +24,7 @@ const Constructor = () => {
     const [arrays, setArrays] = useState({resultArr: [], startAtt: constArr[offer].split(' ').sort(() => Math.random()-0.5)});
     // eslint-disable-next-line
     useEffect(() => {
-        dispatch(editHeader('Составь предложение', true))
+        dispatch(editHeader('tasksPageConstructor', true))
         if (arrays.startAtt.length === 0 && JSON.stringify(arrays.resultArr) === JSON.stringify(constArr[offer].split(' '))) {
             setSuccses(true)
             setOffer(getRandomInt(constArr.length-1))

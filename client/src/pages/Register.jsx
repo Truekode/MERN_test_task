@@ -65,7 +65,7 @@ const Register = () => {
     },[form, testPass, status])
 
     return (
-        <div className="Login App">
+        <div className="Login App Registration">
             {status.type === 'success'
                 ?  <div className="notification__success notification__auth">
                     <Alert

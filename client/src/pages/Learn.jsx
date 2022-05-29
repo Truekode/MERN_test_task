@@ -24,7 +24,7 @@ const Learn = () => {
     }
 
     useEffect(() => {
-        dispatch(editHeader('Учим слова', true))
+        dispatch(editHeader('tasksPageLearnWords', true))
         setActionWord(words[wordIndex]);
     }, [wordIndex])
 

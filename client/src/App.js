@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from "react";
 import 'antd/dist/antd.css';
+import './css/Animation.css'
 import './css/App.css'
 import MyNavbar from "./components/UI/Navbar/MyNavbar";
 import AppRouter from "./components/AppRouter";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
-import {Dropdown, Menu, Space} from "antd";
+import {Dropdown, Menu, Select, Space} from "antd";
 import {localization} from "./localization";
 import {editLocalization} from "./redux/Actions/actions";
 import Loader from "./components/UI/Loader/Loader";
@@ -54,11 +55,12 @@ function App() {
     }
 
     return (
-        <div style={{
+        <div className={auth
+            ? `root__wrp registr__wrp`
+            : `root__wrp`}
+            style={{
             height: windowSize,
             overflow: 'hidden !important',
-            display: 'grid',
-            gridTemplateRows: ' 56px 1fr 56px'
         }}>
             {loading
                 ? <Loader />
@@ -69,6 +71,7 @@ function App() {
                         {headerBack
                             ? <ArrowBackIosIcon style={{
                                 position: 'absolute',
+                                color: 'rgba(0, 0, 0, 0.85)',
                                 top: '16px',
                                 left: '20px'
                             }}
@@ -76,35 +79,40 @@ function App() {
                             : <></>
                         }
                         <p>{localization[headerLocalization][headerTitle]}</p>
-                        <div style={{
-                            position: 'absolute',
-                            top: '18px',
-                            right: '20px',
-                            width: '30px',
-                            height: '30px',
-                        }}>
-                            <Dropdown overlay={menu} placement="bottom">
-                                <div>
-                                    <Space>
-                                        {headerLocalization.toUpperCase()}
-                                    </Space>
-                                </div>
-                            </Dropdown>
-                        </div>
-                        {/*<Select*/}
-                        {/*    defaultValue="ru"*/}
-                        {/*    onChange={changeLanguage}*/}
-                        {/*    bordered={false}*/}
-                        {/*    style={{*/}
-                        {/*        position: 'absolute',*/}
-                        {/*        top: '13px',*/}
-                        {/*        right: '20px'*/}
-                        {/*    }}*/}
-                        {/*>*/}
-                        {/*    <Select.Option value="tat">TAT</Select.Option>*/}
-                        {/*    <Select.Option value="ru">RU</Select.Option>*/}
-                        {/*    <Select.Option value="en">EN</Select.Option>*/}
-                        {/*</Select>*/}
+                        {/*<div style={{*/}
+                        {/*    position: 'absolute',*/}
+                        {/*    top: '18px',*/}
+                        {/*    right: '20px',*/}
+                        {/*    width: '30px',*/}
+                        {/*    height: '30px',*/}
+                        {/*}}>*/}
+                        {/*    <Dropdown overlay={menu} placement="bottom">*/}
+                        {/*        <div>*/}
+                        {/*            <Space>*/}
+                        {/*                {headerLocalization.toUpperCase()}*/}
+                        {/*            </Space>*/}
+                        {/*        </div>*/}
+                        {/*    </Dropdown>*/}
+                        {/*</div>*/}
+                        <Select
+                            defaultValue="ru"
+                            onChange={changeLanguage}
+                            showArrow={false}
+                            bordered={false}
+                            size="large"
+                            style={{
+                                position: 'absolute',
+                                top: '9px',
+                                right: '5px',
+                                // color: 'rgb(22 154 192)',
+                                fontSize: '16px',
+                                width: '55px'
+                            }}
+                        >
+                            <Select.Option value="tat">TAT</Select.Option>
+                            <Select.Option value="ru">RU</Select.Option>
+                            <Select.Option value="en">EN</Select.Option>
+                        </Select>
                     </header>
                     : <></>
                 }

@@ -8,7 +8,7 @@ const Attractions = () => {
     const dispatch  = useDispatch();
     const attractionsArr = useSelector(state => state.attractions.attractions)
     useEffect(() => {
-        dispatch(editHeader('Достопримечательности', true))
+        dispatch(editHeader('homePageAttraction', true))
     }, [])
 
     return (

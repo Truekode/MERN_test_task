@@ -1,4 +1,4 @@
-import {EDIT_HEADER, EDIT_LOCALIZATION, HIDE_LOADER, LOGIN, LOGOUT, SHOW_LOADER} from "../types";
+import {EDIT_HEADER, EDIT_LOCALIZATION, GET_USER, HIDE_LOADER, LOGIN, LOGOUT, SHOW_LOADER} from "../types";
 import {storageName} from "../Actions/actions";
 
 const data = JSON.parse(localStorage.getItem(storageName))
@@ -30,6 +30,8 @@ export const appReducer = (state = initialState , action) => {
             return {...state, auth: true, token: action.payload.token, userId: action.payload.userId, user: action.payload.user}
         case LOGOUT:
             return {...state, auth: false, token: '', userId: ''}
+        case GET_USER:
+            return {...state, user: action.payload}
         case EDIT_HEADER:
             return {...state, headerTitle: action.payload.headerTitle, headerBack: action.payload.headerBack}
         default: return state

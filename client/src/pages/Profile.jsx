@@ -1,22 +1,24 @@
-import React, {useEffect} from 'react';
+import React, {useCallback, useEffect} from 'react';
 import {Avatar} from 'antd';
 import {useDispatch, useSelector} from "react-redux";
-import {editHeader, logOut} from "../redux/Actions/actions";
+import {editHeader, getUserInfo, logOut} from "../redux/Actions/actions";
 import {localization} from "../localization";
-
+import avatar from '../img/avatar.png'
 const Profile = () => {
     const dispatch  = useDispatch();
-    const {headerTitle, headerLocalization, user} = useSelector(state => state.app)
+    const {headerTitle, headerLocalization, token, user} = useSelector(state => state.app)
+
 
 
     useEffect(() => {
+        dispatch(getUserInfo(token))
         dispatch(editHeader('headerTitleProfile', false))
     }, [])
 
     return (
         <div className="App" >
             <div className="user__info">
-                <Avatar className="user__avatar" size={180} src="https://joeschmoe.io/api/v1/random" />
+                <Avatar className="user__avatar" size={180} src={avatar} />
                 <div className="user__info__wrp">
                     {/*<div className="user__info__wrp__name">Залетный</div>*/}
                     <p className="user__info__wrp__status">{`${user.lastName} ${user.firstName} ${user.patronymic}`}</p>

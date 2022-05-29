@@ -55,21 +55,23 @@ const Login = () => {
                 </div>
                 : <></>
             }
-            <img src={logo} alt="" style={{width: '250px', marginTop: '40px', marginBottom: '40px'}}/>
-            <form>
-                <Space direction="vertical" style={{width: '90%'}}>
-                    <Input placeholder="Введите логин" name='login' onChange={changeHandler}/>
-                    <Input.Password
-                        placeholder="Введите пароль"
-                        name='password' onChange={changeHandler}
-                        iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
-                    />
-                    <div className="logined__actions">
-                        <Button className="login__btn" type="primary" block onClick={loginHandler}>Войти</Button>
-                        <Button className="regist__btn" type="primary" block onClick={() => router(`/registration`)}>Зарегистрироваться</Button>
-                    </div>
-                </Space>
-            </form>
+            <div className="login__container">
+                <img src={logo} alt="" style={{width: '250px', marginBottom: '40px'}}/>
+                <form>
+                    <Space direction="vertical" style={{width: '90%'}}>
+                        <Input placeholder="Логин" name='login' onChange={changeHandler}/>
+                        <Input.Password
+                            placeholder="Пароль"
+                            name='password' onChange={changeHandler}
+                            iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+                        />
+                        <div className="logined__actions">
+                            <Button className="login__btn" type="primary" block onClick={loginHandler}>Войти</Button>
+                            <Button className="regist__btn" type="primary" block onClick={() => router(`/registration`)}>Зарегистрироваться</Button>
+                        </div>
+                    </Space>
+                </form>
+            </div>
         </div>
     );
 };

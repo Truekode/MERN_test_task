@@ -1,5 +1,5 @@
 {
-  "port": 8000,
+  "port": 6000,
   "jwtSecret": "eidert tatar language",
   "mongoUrl": "mongodb+srv://neelmachine:Test456@cluster0.6opd7.mongodb.net/?retryWrites=true&w=majority"
 }

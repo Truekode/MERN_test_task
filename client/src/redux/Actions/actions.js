@@ -2,7 +2,7 @@ import {
     CREATE_POST,
     EDIT_HEADER,
     EDIT_LOCALIZATION,
-    FETCH_POSTS,
+    GET_USER,
     HIDE_LOADER,
     LOGIN,
     LOGOUT,
@@ -17,14 +17,20 @@ export function createPost(post) {
     }
 }
 
-export function fetchPosts() {
+export function getUserInfo(token) {
+    let headers = {
+        Authorization: `Bearer ${token}`
+    }
     return async dispatch => {
         dispatch(showLoader())
-        const response = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=5')
+        const response = await fetch('/api/user', {method: 'GET', body: null, headers})
+        if (response.status === 401) {
+            dispatch(logOut())
+        }
         const json = await response.json();
         dispatch({
-            type: FETCH_POSTS,
-            payload: json
+            type: GET_USER,
+            payload: json.user[0]
         })
         dispatch(hideLoader())
     }

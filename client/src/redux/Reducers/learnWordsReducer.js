@@ -1,4 +1,4 @@
-import {CREATE_POST, FETCH_POSTS} from "../types";
+import {CREATE_POST} from "../types";
 
 const initialState = {
     words: [
@@ -15,8 +15,6 @@ export const learnWordsReducer = (state = initialState, action) => {
     switch (action.type) {
         case CREATE_POST:
             return {...state, words: [...state.posts, action.payload] }
-        case FETCH_POSTS:
-            return {...state, fetchedPosts: action.payload}
         default:  return state;
     }
 }
