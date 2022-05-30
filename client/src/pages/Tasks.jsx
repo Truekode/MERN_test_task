@@ -53,7 +53,7 @@ function Tasks() {
                         description={localization[headerLocalization].tasksPageConstructorDescription}
                     />
                 </Card>
-                <Card className="task__item">
+                <Card className="task__item" onClick={() => router(`/tests`)}>
                     <Meta
                         avatar={<Avatar shape="square" size={50} src={testsImg} />}
                         title={localization[headerLocalization].tasksPageTests}

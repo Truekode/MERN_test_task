@@ -14,6 +14,8 @@ import Register from "../pages/Register";
 import AlphabetLearn from "../pages/AlphabetLearn";
 import AlphabetLetters from "../pages/AlphabetLetters";
 import AlphabetTest from "../pages/AlphabetTest";
+import Tests from "../pages/Tests";
+import TestItem from "../pages/TestItem";
 
 export const privateRoutes = [
     {path: '/profile', component: <Profile/>, exact: true},
@@ -21,6 +23,8 @@ export const privateRoutes = [
     {path: '/home', component: <Home/>, exact: true},
     {path: '/dictionary', component: <Dictionary/>, exact: true},
     {path: '/learn', component: <Learn/>, exact: true},
+    {path: '/tests', component: <Tests/>, exact: true},
+    {path: '/tests/:id', component: <TestItem/>, exact: true},
     {path: '/constructor', component: <Constructor/>, exact: true},
     {path: '/alphabet', component: <Alphabet/>, exact: true},
     {path: '/attractions', component: <Attractions/>, exact: true},

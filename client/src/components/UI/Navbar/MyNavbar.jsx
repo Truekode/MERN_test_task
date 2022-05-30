@@ -1,12 +1,12 @@
 // eslint-disable-next-line
 
-import React from 'react';
+import React, {useEffect} from 'react';
 // import {AuthContext} from "../../../context";
 import {BottomNavigation, BottomNavigationAction} from "@mui/material";
 import HomeIcon from '@mui/icons-material/Home';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import {localization} from "../../../localization";
 import {useSelector} from "react-redux";
 
@@ -19,6 +19,21 @@ const MyNavbar = () => {
     //     localStorage.removeItem('auth')
     // }
     const router = useNavigate();
+    const location = useLocation();
+
+    useEffect(() => {
+        if (location.pathname.includes('alphabet')
+            || location.pathname.includes('tasks')
+            || location.pathname.includes('constructor')
+            || location.pathname.includes('learn')
+            || location.pathname.includes('tests')
+        ) {
+            setValue(1);
+        }
+        if (location.pathname.includes('profile')) {
+            setValue(2);
+        }
+    }, [location.pathname])
 
     return (
         <BottomNavigation
