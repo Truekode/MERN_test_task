@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import music from  '../img/music.svg'
+import music from  '../img/music.png'
 import {audio} from "../public/audioLetters";
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
