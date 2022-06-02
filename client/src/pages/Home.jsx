@@ -28,12 +28,12 @@ const Home = () => {
                     />
                 </Card>
 
-                <Card className="task__item home__items home__items-small" onClick={() => router(`/attractions`)}>
-                    <Meta
-                        avatar={<Avatar shape="square" size={50} src={facts} />}
-                        title='Факты'
-                    />
-                </Card>
+                {/*<Card className="task__item home__items home__items-small" onClick={() => router(`/attractions`)}>*/}
+                {/*    <Meta*/}
+                {/*        avatar={<Avatar shape="square" size={50} src={facts} />}*/}
+                {/*        title='Факты'*/}
+                {/*    />*/}
+                {/*</Card>*/}
                 {/*<Card className="task__item main__attraction" onClick={() => router(`/attractions`)}>{localization[headerLocalization].homePageAttraction}</Card>*/}
             </div>
 

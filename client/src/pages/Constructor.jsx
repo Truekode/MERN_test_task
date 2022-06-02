@@ -12,7 +12,14 @@ const constArr = [
     'Казанда зур һәм матур өйләр бик күп',
     'Тиздән салкын декабрь һәм яңа ел җитә',
     'Һәр кеше үзенчә гүзәл һәм матур',
-    'Кышкы каникул җитүгә яңа ел башлана.'
+    'Кышкы каникул җитүгә яңа ел башлана'
+]
+
+const constArrTranslate = [
+    'В Казани много больших и красивых домов',
+    'Скоро наступит холодный декабрь и Новый год',
+    'Каждый человек по-своему прекрасен и красив',
+    'С наступлением зимних каникул начинается Новый год'
 ]
 
 const Constructor = () => {
@@ -54,18 +61,21 @@ const Constructor = () => {
         <div className="App">
             <div className="constructor container">
                 <p style={{textAlign: 'center'}}>Составь предложение из предложенных слов</p>
-                <div className="constr__wrp">
-                    {arrays.resultArr.map((item, index) => {
-                        if (!!item) {
-                           return <p key={index}>{item}</p>
-                        } else {
-                            return <p key={index}>______</p>
-                        }
-                    })}
-                </div>
-                <Divider />
-                <div className="constr__wrp">
-                    {arrays.startAtt.map((item, index) => <Tag key={index} onClick={() => changeResult(item)}  style={{ fontSize: '20px', cursor: 'pointer', padding: '10px' }}>{item}</Tag>)}
+                <div className="test__question">
+                    <h2 className="lesson__title">{constArrTranslate[offer]}</h2>
+                    <div className="constr__wrp">
+                        {arrays.resultArr.map((item, index) => {
+                            if (!!item) {
+                                return <p key={index}>{item}</p>
+                            } else {
+                                return <p key={index}>______</p>
+                            }
+                        })}
+                    </div>
+                    <Divider />
+                    <div className="constr__wrp">
+                        {arrays.startAtt.map((item, index) => <Tag key={index} onClick={() => changeResult(item)}  style={{ fontSize: '20px', cursor: 'pointer', padding: '10px' }}>{item}</Tag>)}
+                    </div>
                 </div>
                 <Divider />
                 {succses

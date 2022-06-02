@@ -16,6 +16,12 @@ import AlphabetLetters from "../pages/AlphabetLetters";
 import AlphabetTest from "../pages/AlphabetTest";
 import Tests from "../pages/Tests";
 import TestItem from "../pages/TestItem";
+import Grammar from "../pages/Grammar";
+import GrammarItem from "../pages/GrammarItem";
+import GrammarItem3 from "../pages/GrammarItem3";
+import GrammarItem2 from "../pages/GrammarItem2";
+import GrammarItem4 from "../pages/GrammarItem4";
+
 
 export const privateRoutes = [
     {path: '/profile', component: <Profile/>, exact: true},
@@ -24,6 +30,11 @@ export const privateRoutes = [
     {path: '/dictionary', component: <Dictionary/>, exact: true},
     {path: '/learn', component: <Learn/>, exact: true},
     {path: '/tests', component: <Tests/>, exact: true},
+    {path: '/grammar', component: <Grammar/>, exact: true},
+    {path: '/grammar/1', component: <GrammarItem/>, exact: true},
+    {path: '/grammar/2', component: <GrammarItem2/>, exact: true},
+    {path: '/grammar/3', component: <GrammarItem3/>, exact: true},
+    {path: '/grammar/4', component: <GrammarItem4/>, exact: true},
     {path: '/tests/:id', component: <TestItem/>, exact: true},
     {path: '/constructor', component: <Constructor/>, exact: true},
     {path: '/alphabet', component: <Alphabet/>, exact: true},

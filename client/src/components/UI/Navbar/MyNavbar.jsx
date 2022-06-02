@@ -27,6 +27,7 @@ const MyNavbar = () => {
             || location.pathname.includes('constructor')
             || location.pathname.includes('learn')
             || location.pathname.includes('tests')
+            || location.pathname.includes('grammar')
         ) {
             setValue(1);
         }

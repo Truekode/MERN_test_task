@@ -80,5 +80,18 @@ export const audio = {
         require('./example37.mp3'),
         require('./example38.mp3'),
         require('./example39.mp3'),
+    ],
+    numbers: [
+        require('../lesson/0.mp3'),
+        require('../lesson/1.mp3'),
+        require('../lesson/2.mp3'),
+        require('../lesson/3.mp3'),
+        require('../lesson/4.mp3'),
+        require('../lesson/5.mp3'),
+        require('../lesson/6.mp3'),
+        require('../lesson/7.mp3'),
+        require('../lesson/8.mp3'),
+        require('../lesson/9.mp3'),
+        require('../lesson/10.mp3'),
     ]
 }

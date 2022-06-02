@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import {editHeader} from "../redux/Actions/actions";
 import {CheckCircleFilled, CloseCircleFilled} from "@ant-design/icons";
+import TestComponent from "../components/TestComponent";
 
 const test = [
     {
@@ -119,73 +120,15 @@ const test = [
 
 
 const TestItem = () => {
-    const [testQuestionIndex, setTestQuestionIndex] = useState(0);
     const [startTest, setStartTest] = useState(false);
-    const [successTest, setSuccessTest] = useState(false);
-    const [showAlert, setShowAlert] = useState(false);
 
-    const handleChange = (e) => {
-        if (test[testQuestionIndex].right === e.target.value) {
-            setShowAlert('success')
-            setTimeout(() => {
-                setTestQuestionIndex(testQuestionIndex + 1);
-                setShowAlert(false);
-            }, 3000)
-        } else {
-            setShowAlert('error')
-        }
-    }
-
-    const dispatch  = useDispatch();
     const {headerLocalization} = useSelector(state => state.app)
-    const router = useNavigate();
 
-    useEffect(() => {
-        dispatch(editHeader('tasksPageTest', true))
-    }, [showAlert, testQuestionIndex])
 
     return (
         <div className="App">
             {startTest
-                ? <>
-                    {showAlert === 'error'
-                        ? <div className="test__notification">
-                            <div className="test__notification__content">
-                                <CloseCircleFilled  style={{color: 'red',
-                                    fontSize: '30px'}}/>
-                                {test[testQuestionIndex].messageForIncorrectAnswer}
-                                <Button className="" type="primary" block onClick={() => setShowAlert(false)}>Хорошо!</Button>
-
-                            </div>
-                        </div>
-                        : <></>
-                    }
-                    {showAlert === 'success'
-                        ? <div className="test__notification">
-                            <div className="test__notification__content">
-                                <CheckCircleFilled  style={{color: 'green',
-                                    fontSize: '30px'}}/>
-                                {test[testQuestionIndex].messageForCorrectAnswer}
-                            </div>
-                        </div>
-                        : <></>
-                    }
-                    <div className="test__item">
-                        <div className="test__status">{testQuestionIndex + 1} из {test.length}</div>
-                        <div key={test[testQuestionIndex].question} className="test__question">
-                            <h2>{test[testQuestionIndex].question}</h2>
-                            <div className="test__answers">
-                                <Radio.Group className="test__answers__wrp" onChange={(e) => {
-                                    handleChange(e)
-                                }}>
-                                    {Object.keys(test[testQuestionIndex].answers).map(key =>
-                                        <Radio key={key} value={key}>{test[testQuestionIndex].answers[key]}</Radio>
-                                    )}
-                                </Radio.Group>
-                            </div>
-                        </div>
-                    </div>
-                </>
+                ? <TestComponent test={test}/>
                 : <div className="test__item">
                     <h2>Глаголы</h2>
                     <div>
@@ -193,13 +136,6 @@ const TestItem = () => {
                     </div>
                     <Button className="" type="primary" block onClick={() => setStartTest(true)}>Начать тест</Button>
                 </div>
-            }
-            {successTest
-                ?   <div className="test__item">
-                    <h2>Поздравляем с прохождением теста!!</h2>
-                    <Button className="" type="primary" block onClick={() => setStartTest(true)}>Назад</Button>
-                </div>
-                : <></>
             }
         </div>
     );

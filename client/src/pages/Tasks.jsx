@@ -32,7 +32,7 @@ function Tasks() {
                         description={localization[headerLocalization].tasksPageAlphabetDescription}
                     />
                 </Card>
-                <Card className="task__item">
+                <Card className="task__item" onClick={() => router(`/grammar`)}>
                     <Meta
                         avatar={<Avatar shape="square" size={50} src={grammarImg} />}
                         title={localization[headerLocalization].tasksPageGrammar}

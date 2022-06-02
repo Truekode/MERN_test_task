@@ -3,7 +3,7 @@ import {Alert, Button, Input, Space} from 'antd';
 import {EyeInvisibleOutlined, EyeTwoTone} from '@ant-design/icons';
 import {useHttp} from "../hooks/http.hook";
 import {useDispatch} from "react-redux";
-import {login} from "../redux/Actions/actions";
+import {hideLoader, login, showLoader} from "../redux/Actions/actions";
 import {useNavigate} from "react-router-dom";
 import logo from '../img/logoinLogin.png'
 const Login = () => {
@@ -28,9 +28,12 @@ const Login = () => {
     const loginHandler = async (event) => {
         event.preventDefault();
         try {
+            dispatch(showLoader());
             const data = await request('/api/auth/login', 'POST', {...form})
             dispatch(login(data.token, data.userId, data.user));
+            dispatch(hideLoader());
         } catch (e) {
+            dispatch(hideLoader());
             setStatus({...status, type: 'error', message: e.message})
             setTimeout(() => {
                 clearError();

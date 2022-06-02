@@ -33,9 +33,9 @@ const Profile = () => {
                         <p>0</p>
                     </div>
                 </div>
-                <button className="myActions">{localization[headerLocalization].profileStatusLevel}</button>
-                <button className="myActions">{localization[headerLocalization].profileStatusAchievements}</button>
-                <button className="myActions">Настройки</button>
+                <button className="myActions">{localization[headerLocalization].profileStatusLevel} - {user.level}</button>
+                {/*<button className="myActions">{localization[headerLocalization].profileStatusAchievements}</button>*/}
+                {/*<button className="myActions">Настройки</button>*/}
                 <button className="myActions" onClick={() => dispatch(logOut)}>Выйти из профиля</button>
             </div>
         </div>
