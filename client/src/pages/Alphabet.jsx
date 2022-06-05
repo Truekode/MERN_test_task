@@ -22,9 +22,9 @@ const Alphabet = () => {
             <Card className="task__item main__attraction" onClick={() => router(`/alphabet/learn`)}>
                 {localization[headerLocalization].alphabet.learnPage}
             </Card>
-            {/*<Card className="task__item main__attraction" onClick={() => router(`/alphabet/test`)}>*/}
-            {/*    {localization[headerLocalization].alphabet.testPage}*/}
-            {/*</Card>*/}
+            <Card className="task__item main__attraction" onClick={() => router(`/alphabet/test`)}>
+                {localization[headerLocalization].alphabet.testPage}
+            </Card>
         </div>
     );
 };

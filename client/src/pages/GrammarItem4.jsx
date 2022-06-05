@@ -8,6 +8,7 @@ import TestComponent from "../components/TestComponent";
 import {Button} from "antd";
 import {ItemTypes} from "../components/DragAndDropMulti/ItemTypes";
 import {DragAndDropMulti} from "../components/DragAndDropMulti/DragAndDropMulti";
+import Letters from "../components/UI/Letters/Letters";
 const GrammarItem4 = () => {
     const dispatch  = useDispatch();
     const {headerLocalization} = useSelector(state => state.app)
@@ -56,63 +57,24 @@ const GrammarItem4 = () => {
                     </>
                     : <>
                         <h2 className="lesson__title">Саннарны өйрәнәбез - Учим цифры</h2>
-                        <div className="test__question">
-                            <div className="number">0 - ноль
-                                <button onClick={() => {
-                                    new Audio(audio.numbers[0]).play();
-                                }}><img src={music} alt=""/></button>
-                            </div>
-                            <div className="number">1 - бер
-                                <button onClick={() => {
-                                    new Audio(audio.numbers[1]).play();
-                                }}><img src={music} alt=""/></button>
-                            </div>
-                            <div className="number">2 - ике
-                                <button onClick={() => {
-                                    new Audio(audio.numbers[2]).play();
-                                }}><img src={music} alt=""/></button>
-                            </div>
-                            <div className="number">3 - өч
-                                <button onClick={() => {
-                                    new Audio(audio.numbers[3]).play();
-                                }}><img src={music} alt=""/></button>
-                            </div>
-                            <div className="number">4 - дүрт
-                                <button onClick={() => {
-                                    new Audio(audio.numbers[4]).play();
-                                }}><img src={music} alt=""/></button>
-                            </div>
-                            <div className="number">5 - биш
-                                <button onClick={() => {
-                                    new Audio(audio.numbers[5]).play();
-                                }}><img src={music} alt=""/></button>
-                            </div>
-                            <div className="number">6 - алты
-                                <button onClick={() => {
-                                    new Audio(audio.numbers[6]).play();
-                                }}><img src={music} alt=""/></button>
-                            </div>
-                            <div className="number">7 - җиде
-                                <button onClick={() => {
-                                    new Audio(audio.numbers[7]).play();
-                                }}><img src={music} alt=""/></button>
-                            </div>
-                            <div className="number">8 - сигез
-                                <button onClick={() => {
-                                    new Audio(audio.numbers[8]).play();
-                                }}><img src={music} alt=""/></button>
-                            </div>
-                            <div className="number">9 - тугыз
-                                <button onClick={() => {
-                                    new Audio(audio.numbers[9]).play();
-                                }}><img src={music} alt=""/></button>
-                            </div>
-                            <div className="number">10 - ун
-                                <button onClick={() => {
-                                    new Audio(audio.numbers[10]).play();
-                                }}><img src={music} alt=""/></button>
-                            </div>
+                        <br/>
+                        <div className="numbers__wrapper">
+                            {
+                                dustbins.map((item, index) =>
+                                    <Letters letter={`${item.name} - ${item.trues}`}
+                                             key={item.name}
+                                             onClick={() => {
+                                                 new Audio(audio.numbers[index + 1]).play();
+                                             }}
+                                />)
+                            }
+                            {/*<div className="number">10 - ун*/}
+                            {/*    <button onClick={() => {*/}
+                            {/*        new Audio(audio.numbers[10]).play();*/}
+                            {/*    }}><img src={music} alt=""/></button>*/}
+                            {/*</div>*/}
                         </div>
+                        <br/>
                         <Button className="" type="primary" block onClick={() => setStartTest(true)}>Проверить себя</Button>
                     </>
                 }

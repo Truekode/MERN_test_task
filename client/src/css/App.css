@@ -126,9 +126,22 @@ header {
 }
 
 .constr__wrp {
+    font-size: 30px;
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
+    justify-content: center;
+}
+
+.alphabet__test__wrp img {
+    width: 150px;
+}
+.alphabet__test__wrp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .user__avatar {
@@ -696,4 +709,40 @@ ul.lesson__dialog {
 .number button {
     border: none;
     background: none;
+}
+
+.numbers__wrapper div {
+    height: auto;
+    width: auto;
+}
+.numbers__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.ingredients__title {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    color: #000000;
+}
+
+.ingredients {
+    display: grid;
+    font-size: 13px;
+    grid-column-gap: 10px;
+    padding-left: 10px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.steps li {
+    margin-bottom: 10px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #000000;
 }

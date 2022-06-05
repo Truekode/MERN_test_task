@@ -21,6 +21,8 @@ import GrammarItem from "../pages/GrammarItem";
 import GrammarItem3 from "../pages/GrammarItem3";
 import GrammarItem2 from "../pages/GrammarItem2";
 import GrammarItem4 from "../pages/GrammarItem4";
+import Recepts from "../pages/Recepts";
+import ReceptsItem from "../pages/ReceptsItem";
 
 
 export const privateRoutes = [
@@ -38,6 +40,8 @@ export const privateRoutes = [
     {path: '/tests/:id', component: <TestItem/>, exact: true},
     {path: '/constructor', component: <Constructor/>, exact: true},
     {path: '/alphabet', component: <Alphabet/>, exact: true},
+    {path: '/recipes', component: <Recepts/>, exact: true},
+    {path: '/recipes/:id', component: <ReceptsItem/>, exact: true},
     {path: '/attractions', component: <Attractions/>, exact: true},
     {path: '/attraction/:id', component: <AttractionItem/>, exact: true},
     {path: '/attractions3D/:id', component: <Attraction3D/>, exact: true},

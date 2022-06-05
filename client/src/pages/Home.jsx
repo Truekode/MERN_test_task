@@ -5,7 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {editHeader} from "../redux/Actions/actions";
 import {localization} from "../localization";
 import attractions from "../img/attractions.png";
-import facts from "../img/facts.png";
+import facts from "../img/recepts.png";
 import Meta from "antd/es/card/Meta";
 
 
@@ -28,12 +28,12 @@ const Home = () => {
                     />
                 </Card>
 
-                {/*<Card className="task__item home__items home__items-small" onClick={() => router(`/attractions`)}>*/}
-                {/*    <Meta*/}
-                {/*        avatar={<Avatar shape="square" size={50} src={facts} />}*/}
-                {/*        title='Факты'*/}
-                {/*    />*/}
-                {/*</Card>*/}
+                <Card className="task__item home__items home__items-small" onClick={() => router(`/recipes`)}>
+                    <Meta
+                        avatar={<Avatar shape="square" size={50} src={facts} />}
+                        title='Рецепты'
+                    />
+                </Card>
                 {/*<Card className="task__item main__attraction" onClick={() => router(`/attractions`)}>{localization[headerLocalization].homePageAttraction}</Card>*/}
             </div>
 

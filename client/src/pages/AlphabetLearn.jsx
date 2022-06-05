@@ -6,7 +6,7 @@ import { ArrowRightOutlined, ArrowLeftOutlined } from '@ant-design/icons';
 import {Button} from "antd";
 import {audio} from "../public/audioLetters";
 
-const letters = [
+export const letters = [
     {letter: 'Аа', transcription: '[а]',  img: 'img', example: 'Авыз - Рот'},
     {letter: 'Әә', transcription: '[ә]',  img: 'img', example: 'Әби - Бабушка'},
     {letter: 'Бб', transcription: '[б]',  img: 'img', example: 'Бара - Идет'},

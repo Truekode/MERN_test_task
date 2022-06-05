@@ -78,7 +78,10 @@ function App() {
                                                 onClick={() => navigate(-1)}/>
                             : <></>
                         }
-                        <p>{localization[headerLocalization][headerTitle]}</p>
+                        <p>{localization[headerLocalization][headerTitle]
+                            ? localization[headerLocalization][headerTitle]
+                            : headerTitle
+                        }</p>
                         {/*<div style={{*/}
                         {/*    position: 'absolute',*/}
                         {/*    top: '18px',*/}

@@ -34,8 +34,8 @@ const store = createStore(rootReducer, compose(
         thunk
     ),
     // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-    (window.navigator.userAgent.includes('Chrome') && !window.navigator.userAgent.includes('Edg')) ?
-            window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() : compose
+    // (window.navigator.userAgent.includes('Chrome') && !window.navigator.userAgent.includes('Edg')) ?
+    //         window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() : compose
 ))
 
 const rootElement = document.getElementById("root");
